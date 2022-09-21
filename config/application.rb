@@ -12,6 +12,7 @@ module EventManager2
     config.load_defaults 7.0
 
     config.generators do |g|
+      g.test_framework  :test_unit, fixture: false
     end
     # Configuration for the application, engines, and railties goes here.
     #
