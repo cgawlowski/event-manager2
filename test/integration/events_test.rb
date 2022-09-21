@@ -16,8 +16,8 @@ class EventsTest < ActionDispatch::IntegrationTest
 
       #... the number of examples
       json.size.must_equal 2
-      
-      #... the names and description for both events
+
+      #... the names and description are correctly created for both events
       json[0]['name'].must_equal 'Festival de Jazz de Montréal'
       json[0]['description'].must_equal 'MyString1'
       json[1]['name'].must_equal 'Juste pour Rire'
