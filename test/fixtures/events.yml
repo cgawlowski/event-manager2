@@ -2,12 +2,12 @@
 
 one:
   name: Festival de Jazz de Montréal
-  description: MyString
+  description: MyString1
   start_date: 2022-09-04 18:13:27
   end_date: 2022-09-04 18:13:27
 
 two:
-  name: MyString
-  description: MyString
+  name: Juste pour Rire
+  description: MyString2
   start_date: 2022-09-04 18:13:27
   end_date: 2022-09-04 18:13:27
