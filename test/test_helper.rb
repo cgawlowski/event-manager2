@@ -3,6 +3,7 @@ require_relative "../config/environment"
 require "rails/test_help"
 require 'minitest/spec'
 require 'minitest/autorun'
+require 'capybara/rails'
 
 class ActiveSupport::TestCase
   extend Minitest::Spec::DSL

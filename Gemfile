@@ -53,6 +53,7 @@ group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem "launchy"
   gem 'rack-test'
+  gem 'capybara'
 end
 
 group :development do
@@ -64,6 +65,8 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+  gem 'guard'
+  gem 'guard-minitest'
 end
 
 group :test do
@@ -71,4 +74,8 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  #Added Testing gems
+  gem 'minitest-reporters'
+  gem 'factory_bot_rails'
+  gem 'mocha'
 end
