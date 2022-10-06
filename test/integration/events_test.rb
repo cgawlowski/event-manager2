@@ -1,41 +1,35 @@
 require "test_helper"
 
 class EventsTest < ActionDispatch::IntegrationTest
-  #Factory testing
-  test "has a valid factory" do
-    event = FactoryBot.build :event
-    assert event.valid?
+
+  #Routes testing
+
+  test "can get index" do
+    get root_url
+    assert_response :success
   end
+
+  #Alternative way: an HTTP status code 200 means success
+  test 'responds with 200 OK' do
+    get '/api/events'
+    _(response.status).must_equal 200
+  end
+
+  test "returns all events in JSON" do    
+    get '/api/events'
   
-  #Unit testing of the Event model
-  test 'events are correctly created' do
-    FactoryBot.create :event
+    json = JSON.parse(response.body)
+    _(json.size).must_equal 2
+    _(json[0]['name']).must_equal 'Festival de Jazz de Montréal'
+    _(json[1]['name']).must_equal 'Juste pour Rire'
   end
 
-  test "a name is created" do
-    event = FactoryBot.build :event
-    event.name = ""
-    refute event.valid?
-  end
+  # test "can get new" do
+  #   get api_event_url
+  #   assert_response :success
+  # end
 
-  test "should not save event without a name" do
-    event = Event.new
-    assert !event.save, "Saved the event without a title"
-  end
-
-  test "description is created" do
-    event = FactoryBot.build :event
-    event.description = ""
-    assert event.valid?, "Description has not been added"
-  end
-
-  test "can't be saved if name is more than 32 characters" do
-    event = FactoryBot.build :event
-    event.name = "a very very very long name for that event"
-    assert !event.save, "Event has been saved"
-  end
-
-  # test "user can create a new event" do
+  # test "pass if user can create a new event" do
   #   visit root_path
     
   #   click_on "New Event"
