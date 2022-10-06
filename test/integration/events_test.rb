@@ -29,6 +29,12 @@ class EventsTest < ActionDispatch::IntegrationTest
     assert event.valid?, "Description has not been added"
   end
 
+  test "can't be saved if name is more than 32 characters" do
+    event = FactoryBot.build :event
+    event.name = "a very very very long name for that event"
+    assert !event.save, "Event has been saved"
+  end
+
   # test "user can create a new event" do
   #   visit root_path
     
